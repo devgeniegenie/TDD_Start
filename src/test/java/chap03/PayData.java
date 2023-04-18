@@ -30,7 +30,7 @@ public class PayData {
         return firstBillingDate;
     }
 
-    public static Builder build() {
+    public static Builder builder() {
         return new Builder();
     }
 
