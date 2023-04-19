@@ -119,6 +119,10 @@ public class ExpiryDateCalculatorTest {
                 , LocalDate.of(2020, 1, 28));
     }
 
+    //13만원을 납부하면 1년 3개월 뒤가 만료일이 되어야 함
+    //윤달 마지막 날에 10만원을 납부
+    //....
+
     private void assertExpiryDate(PayData payData, LocalDate expectedExpiryDate) {
         ExpiryDateCalculator cal = new ExpiryDateCalculator();
         LocalDate expiryDate = cal.calculateExpiryDate(payData);
