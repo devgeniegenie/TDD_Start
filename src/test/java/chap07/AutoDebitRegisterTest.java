@@ -3,35 +3,65 @@ package chap07;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static chap07.CardValidity.THEFT;
-import static chap07.CardValidity.VALID;
+import java.time.LocalDateTime;
+
+import static chap07.CardValidity.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class AutoDebitRegisterTest {
 
     private AutoDebitRegister register;
+    private StubCardNumberValidator stubValidator;
+//    private StubAutoDebitInfoRepository stubRepository;
+    private MemoryAutoDebitInfoRepository repository;
 
     @BeforeEach
     void setUp() {
-        CardNumberValidator validator = new CardNumberValidator();
-        AutoDebitInfoRepository repository = new JpaAutoDebitInfoRepository();
-        register = new AutoDebitRegister(validator, repository);
+        stubValidator = new StubCardNumberValidator();
+//        stubRepository = new StubAutoDebitInfoRepository();
+        repository = new MemoryAutoDebitInfoRepository();
+//        register = new AutoDebitRegister(stubValidator, stubRepository);
+        register = new AutoDebitRegister(stubValidator, repository);
     }
 
     @Test
-    void validCard() {
-        //업체에서 받은 테스트용 유효한 카드번호라고 가정
-        AutoDebitReq req = new AutoDebitReq("user1", "546489189489499");
-        RegisterResult result = this.register.register(req);
-        assertEquals(VALID, result.getValidity());
+    void invalidCard() {
+        stubValidator.setInvalidNo("1234551231");
+
+        AutoDebitReq req = new AutoDebitReq("user1", "1234551231");
+        RegisterResult result = register.register(req);
+
+        assertEquals(INVALID, result.getValidity());
     }
 
     @Test
     void theftCard() {
-        //업체에서 받은 테스트용 유효한 카드번호라고 가정
-        AutoDebitReq req = new AutoDebitReq("user1", "1894521894894984");
-        RegisterResult result = this.register.register(req);
+        stubValidator.setTheftNo("1234551231");
+
+        AutoDebitReq req = new AutoDebitReq("user1", "1234551231");
+        RegisterResult result = register.register(req);
+
         assertEquals(THEFT, result.getValidity());
+    }
+
+    @Test
+    void alreadyRegistered_InfoUpdated() {
+        repository.save(new AutoDebitInfo("user1", "1234551231", LocalDateTime.now()));
+
+        AutoDebitReq req = new AutoDebitReq("user1", "222222");
+        RegisterResult result = this.register.register(req);
+
+        AutoDebitInfo saved = repository.findOne("user1");
+        assertEquals("222222", saved.getCardNumber());
+    }
+
+    @Test
+    void notYetRegistered_newInfoRegisterd() {
+        AutoDebitReq req = new AutoDebitReq("user1", "1234551231");
+        /*RegisterResult result = */this.register.register(req);
+
+        AutoDebitInfo saved = repository.findOne("user1");
+        assertEquals("1234551231", saved.getCardNumber());
     }
 
 }
