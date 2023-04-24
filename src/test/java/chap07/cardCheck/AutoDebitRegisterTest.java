@@ -1,11 +1,11 @@
-package chap07;
+package chap07.cardCheck;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDateTime;
 
-import static chap07.CardValidity.*;
+import static chap07.cardCheck.CardValidity.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class AutoDebitRegisterTest {

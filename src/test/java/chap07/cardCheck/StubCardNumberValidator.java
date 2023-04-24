@@ -1,4 +1,4 @@
-package chap07;
+package chap07.cardCheck;
 
 /**
  * 카드 정보 API를 대신해서 유효한 카드번호, 도난 카드번호와 같은 상황을 흉내냄

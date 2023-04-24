@@ -1,4 +1,4 @@
-package chap07;
+package chap07.cardCheck;
 
 public class AutoDebitReq {
     private String userId;
