@@ -15,7 +15,6 @@ public class UserRegisterTest {
     @BeforeEach
     void setUp() {
         userRegister = new UserRegister(stubPasswordChecker, fakeRepository, spyEmailNotifier);
-
     }
 
     @DisplayName("약한 암호면 가입 실패")

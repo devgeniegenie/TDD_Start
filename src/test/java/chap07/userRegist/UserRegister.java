@@ -3,12 +3,12 @@ package chap07.userRegist;
 public class UserRegister {
     private WeakPasswordChecker passwordChecker;
     private UserRepository userRepository;
-    private SpyEmailNotifier spyEmailNotifier;
+    private EmailNotifier emailNotifier;
 
-    public UserRegister(StubWeakPasswordChecker passwordChecker, MemoryUserRepository userRepository, SpyEmailNotifier spyEmailNotifier) {
+    public UserRegister(StubWeakPasswordChecker passwordChecker, MemoryUserRepository userRepository, EmailNotifier emailNotifier) {
         this.passwordChecker = passwordChecker;
         this.userRepository = userRepository;
-        this.spyEmailNotifier = spyEmailNotifier;
+        this.emailNotifier = emailNotifier;
     }
 
 
@@ -22,6 +22,6 @@ public class UserRegister {
         }
         userRepository.save(new User(id, pw, email));
 
-        spyEmailNotifier.sendRegisterEmail(email);
+        emailNotifier.sendRegisterEmail(email);
     }
 }
