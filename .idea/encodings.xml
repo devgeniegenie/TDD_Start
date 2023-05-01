@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="Encoding">
+  <component name="Encoding" defaultCharsetForPropertiesFiles="UTF-8">
     <file url="file://$PROJECT_DIR$/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/test/java/chap05/memo.md" charset="UTF-8" />
-    <file url="jar://$MAVEN_REPOSITORY$/org/mockito/mockito-core/4.5.1/mockito-core-4.5.1.jar!/org/mockito/ArgumentMatchers.class" charset="UTF-16LE" />
-    <file url="jar://$MAVEN_REPOSITORY$/org/mockito/mockito-core/4.5.1/mockito-core-4.5.1.jar!/org/mockito/BDDMockito.class" charset="UTF-16BE" />
+    <file url="file://$PROJECT_DIR$/src/test/java/chpa08/memo.md" charset="UTF-8" />
+    <file url="PROJECT" charset="UTF-8" />
   </component>
 </project>
