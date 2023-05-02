@@ -1,4 +1,4 @@
-package chpa08.payinfo;
+package chpa08;
 
 public class PayInfo {
     private final String datetime;

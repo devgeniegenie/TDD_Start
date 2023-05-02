@@ -1,4 +1,4 @@
-package chpa08.payinfo;
+package chpa08;
 
 import java.io.IOException;
 import java.nio.file.Files;
