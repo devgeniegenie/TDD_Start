@@ -15,7 +15,7 @@ public class DailyBatchLoaderTest {
 
     @BeforeEach
     void setUp() {
-        loader.setBasePath("src/test/resources");
+        loader.setBasePath("src/test/resources"); 
         loader.setTimes(mockTimes);
     }
 
