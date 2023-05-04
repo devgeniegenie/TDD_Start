@@ -1,4 +1,4 @@
-package chpa08;
+package chap08;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

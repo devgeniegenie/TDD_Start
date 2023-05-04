@@ -1,4 +1,4 @@
-package chpa08;
+package chap08;
 
 public interface SubscriptionDao {
     Subscription selectByUser(String id);

@@ -1,4 +1,4 @@
-package chpa08;
+package chap08;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;

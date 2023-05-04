@@ -1,4 +1,4 @@
-package chpa08;
+package chap08;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

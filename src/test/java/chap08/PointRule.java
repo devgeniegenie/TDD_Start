@@ -1,8 +1,8 @@
-package chpa08;
+package chap08;
 
 import java.time.LocalDate;
 
-import static chpa08.Grade.GOLD;
+import static chap08.Grade.GOLD;
 
 public class PointRule {
 

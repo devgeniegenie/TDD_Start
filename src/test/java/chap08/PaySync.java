@@ -1,4 +1,4 @@
-package chpa08;
+package chap08;
 
 import java.io.IOException;
 import java.nio.file.Files;

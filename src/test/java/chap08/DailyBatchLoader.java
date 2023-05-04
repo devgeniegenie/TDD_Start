@@ -1,4 +1,4 @@
-package chpa08;
+package chap08;
 
 import java.nio.file.Path;
 import java.nio.file.Paths;
